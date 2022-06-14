@@ -3,16 +3,20 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 const Hotel = require("./schema/Hotel.js")
+const cookieParser = require("cookie-parser")
 require('dotenv/config');
 app.use(bodyParser.json())
 
 //midleWare
+app.use(cookieParser())
 const authRouter = require("./routes/auth");
 const hotelRouter = require("./routes/hotel");
 const usersRouter = require("./routes/users");
+const roomsRouter = require("./routes/rooms")
 app.use("", authRouter);
 app.use("", hotelRouter);
 app.use("", usersRouter);
+app.use("", roomsRouter);
 
 app.get("/", async (req, res) => {
     res.send("API IS ALIVE")

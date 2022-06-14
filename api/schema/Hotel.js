@@ -4,26 +4,26 @@ const hotelSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // city: {
-    //     type: String,
-    //     required: true
-    // },
+    city: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
-        required: true}
-    // },
-    // photos: {
-    //     type: [String],
-    //     required: true
-    // },
-    // rating: {
-    //     type: Number,
-    //     min: 0,
-    //     max: 5
-    // },
-    // rooms: {
-    //     type: [String]
-    // }
-});
+        required: true
+    },
+    photos: {
+        type: [String],
+        required: true
+    },
+    rating: {
+        type: Number,
+        min: 0,
+        max: 5
+    },
+    rooms: {
+        type: [String]
+    }
+}, {timestamps: true});
 
 module.exports = mongoose.model("Hotel", hotelSchema)

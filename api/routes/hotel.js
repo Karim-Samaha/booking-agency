@@ -1,22 +1,20 @@
 const express = require("express");
 const Hotel = require("../schema/Hotel")
+const { verfiyToken, verfiyUser, verifyAdmin } = require("./verfiyToken")
 
 const router = express.Router();
 //Post
-router.post("/hotels", async (req, res) => {
-    const Post = new Hotel({
-        name: req.body.name,
-        description: req.body.description
-    })
+router.post("/hotels", verifyAdmin, async (req, res, next) => {
+    const Post = new Hotel(req.body)
     try {
         Post.save()
             .then((data) => res.json(data))
     } catch (err) {
-        res.status(500).json(err)
+        next(err)
     }
 })
 //Update
-router.put("/hotels/:id", async (req, res) => {
+router.put("/hotels/:id", verifyAdmin, async (req, res, next) => {
     try {
         const specificPostToUpdate = await Hotel.findByIdAndUpdate(
             req.params.id,
@@ -25,25 +23,25 @@ router.put("/hotels/:id", async (req, res) => {
         )
         res.json(specificPostToUpdate)
     } catch (err) {
-        res.status(500).json(err)
+        next(err)
     }
 })
 //Delete
-router.delete("/hotels/:id", async (req, res) => {
+router.delete("/hotels/:id", verifyAdmin, async (req, res, next) => {
     try {
         await Hotel.findByIdAndDelete(req.params.id)
         res.status(200).json("post has been deleted")
     } catch (err) {
-        res.status(500).json(err)
+        next(err)
     }
 })
 //Get One Post 
-router.get("/hotels/:id", async (req, res) => {
+router.get("/hotels/:id", async (req, res, next) => {
     try {
         const Post = await Hotel.findById(req.params.id)
         res.json(Post);
     } catch (err) {
-        res.status(500).json(err)
+        next(err)
     }
 })
 
