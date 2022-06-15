@@ -1,0 +1,150 @@
+@import "./main.scss";
+nav {
+    width: 100vw;
+    height: 70vh;
+    background-color: $blueColor;
+    position: relative;
+    .icon {
+        
+        padding: 40px 50px 50px 80px;
+        font-size: 2em;
+        position: relative;
+       a {
+        color: white;
+        text-decoration: none;
+       }
+    }
+    .nav-links {
+        width: 50%;
+        height: 20%;
+        @include flex(space-around, row);
+        color: white;
+        list-style: none;
+        margin-left: 20vh;
+        li {
+            font-size: 1.4em;
+            cursor: pointer;
+            transition: $transistion;
+            @include flex(space-around, row);
+            padding: 10px;
+            border-radius: 20px;
+            svg {
+                margin-right: 10px;
+            }
+            &:hover {
+                color: #ffffff80;
+                border: 2px solid white;
+            }
+        }
+    }
+    .textWrapper {
+        width: 60%;
+        height: 25vh;
+        margin-left: 80px;
+        margin-top: 20px;
+        color: white;
+        @include flex(space-around, column);
+        align-items: flex-start;
+        h2 {
+            padding: 0 !important;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            margin-left: 50px;
+            background-color: #011a3e;
+            color: white;
+            font-size: 16px;
+            transition: $transistion;
+            cursor: pointer;
+            &:hover {
+                background-color: #00265c;
+            }
+        }
+    }
+    .bookingBar {
+        width: 80%;
+        height: 10vh;
+        @include flex(flex-start, row);
+        position: absolute;
+        left: 10%;
+        bottom: -5%;
+        border: 3px solid $yellowColor;
+        border-radius: 2px;
+        position: relative;
+        input {
+            height: 100%;
+            width: 33.3%;
+            border: none;
+            font-size: 1.2em;
+            background-color: white;
+            &:focus {
+                outline: none;
+            }
+        }
+        .date,
+        .peopleAmount {
+            width: 33.3%;
+            height: 100%;
+            background-color: white;
+            border: 3px solid $yellowColor;
+            font-size: 1em;
+            position: relative;
+            @include flex(center, row);
+            cursor: pointer;
+            svg {
+                margin-right: 5%;
+            }
+        }
+        .peopleAmount {
+            justify-content: space-around;
+        }
+        .dateSelctor {
+            position: absolute;
+            z-index: 9999;
+            top: 100%;
+            left: 33.3%;
+        }
+        .roomOption {
+            position: absolute;
+            z-index: 9999;
+            background-color: white;
+            top: 120%;
+            left: 66.6%;
+            width: 33.3%;
+            height: 25vh;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            ul {
+                list-style: none;
+                width: 100%;
+                height: 100%;
+                @include flex(space-around, column);
+                align-items: flex-end;
+                color: black;
+                padding: 0;
+                li {
+                    font-size: 1.4em;
+                    width: 90%;
+                    @include flex(flex-start, row);
+                    position: relative;
+                    div {
+                        position: absolute;
+                        right: 30%;
+                        button {
+                            margin: 0 20px;
+                            padding: 5px;
+                            color: white;
+                            background-color: $blueColor;
+                            border: none;
+                            cursor: pointer;
+                            transition: $transistion;
+                            &:hover {
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

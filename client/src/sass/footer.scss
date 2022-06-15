@@ -1,0 +1,24 @@
+@import "./main.scss";
+footer {
+    width: 100vw;
+    height: 45vh;
+    @include flex(flex-end, row);
+    align-items: flex-start;
+    ul {
+        margin-right: 1.8%;
+        margin-top: 2%;
+        list-style: none;
+        width: 16%;
+        height: 65%;
+        @include flex(space-around, column);
+        align-items: flex-start;
+        li {
+            transition: $transistion;
+            cursor: pointer;
+            font-weight: 600;
+            &:hover {
+                opacity: .6;
+            }
+        }
+    }
+}

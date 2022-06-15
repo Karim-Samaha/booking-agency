@@ -1,0 +1,46 @@
+@import "./main.scss";
+.newsSection {
+    width: 100%;
+    height: 35vh;
+    @include flex(center, column);
+    background-color: $blueColor;
+    h2 {
+        color: white;
+        margin-bottom: 1%;
+    }
+    h4 {
+        color: white;
+        margin-bottom: 1%;
+    }
+    .inputContainer {
+        width: 60%;
+        height: 50px;
+        @include flex(center, row);
+        input {
+            width: 40%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            text-indent: 10px;
+            &:focus {
+                outline: 2px solid $yellowColor;
+            }
+        }
+        button {
+            height: 100%;
+            margin-left: 5px;
+            background-color: #011a3e;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 2px;
+            transition: $transistion;
+            font-size: 1em;
+            cursor: pointer;
+            &:hover {
+                border: 1px solid $yellowColor;
+            }
+
+        }
+    }
+}
